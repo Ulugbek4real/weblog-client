@@ -1,8 +1,13 @@
-
+import TopBar from "./components/topBar/TopBar";
+import Home from "./pages/home/Home";
+import Single from "./pages/single/Single";
 
 function App() {
   return (
-   <h1>Hello World!</h1>
+<>
+<TopBar />
+<Single />
+</>
   );
 }
 

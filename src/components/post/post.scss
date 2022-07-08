@@ -1,0 +1,77 @@
+.post{
+    display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 2rem;
+     line-height: 30px;
+     margin-top: 3rem;
+
+     a{
+        text-decoration: none;
+     }
+    .postInfo{
+
+        .postHeader{
+            display: flex;
+            gap: 0.7rem;
+            align-items: center;
+             a{
+                color: rgb(56, 56, 56);
+             }
+
+            .authorPic{
+                width: 25px;
+                height: 25px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+        }
+
+        .postTitle{
+            a{
+                color: black;
+                line-height:initial;
+            }
+            .subtitle{
+                a{
+                    color:grey
+                }
+            }
+        }
+
+
+        .postFooter{
+
+            display: flex;
+            justify-content: space-between;
+            color: grey;
+
+            a{
+                color: black;
+                background-color: rgb(230, 230, 230);
+                border-radius: 20px;
+                padding: 0 0.5rem;
+            }
+
+           
+            .left{
+                display: flex;
+                gap: 0.5rem;
+            }
+            .saved{
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+
+        .postPic{
+            width: 200px;
+            height: 135px;
+            object-fit: cover;
+        }
+    
+}
