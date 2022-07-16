@@ -1,0 +1,66 @@
+.write{
+    width: 70vw;
+    margin: 0 auto;
+    padding-top:50px ;
+    .writeImage{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+        .writeForm{
+  
+      position: relative;
+            .writeFormGroup{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                label{
+                  width: 30px;
+                  height: 30px;
+                    border-radius: 50%;
+                    border: 1px solid; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    color: rgb(144, 144, 144);
+                    i{
+                        font-size: 25px;
+                
+                    }
+                }
+                .writeInput{
+                    width: 100%;
+                    border: transparent;
+                    font-size: 35px;
+                    padding: 15px;
+                   
+            
+                    &:focus{
+                       outline:none ;
+                    }
+                }
+                .writeText{
+                    font-size: 20px;
+                height: 100vh;
+                }
+            }
+            .sumbit-btn{
+                position: absolute;
+                top: 20px;
+                right: 0;
+                color: white;
+                background-color: teal;
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+        }
+    
+   
+
+}
