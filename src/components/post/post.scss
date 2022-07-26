@@ -3,8 +3,14 @@
      align-items: center;
      justify-content: space-between;
      gap: 2rem;
-     line-height: 30px;
-     margin-top: 3rem;
+     
+    //  margin-top: 3rem;
+    padding-bottom: 3rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0;
+    line-height: 30px;
+    font-weight: 400;
 
      a{
         text-decoration: none;
@@ -15,8 +21,15 @@
             display: flex;
             gap: 0.7rem;
             align-items: center;
+           
              a{
                 color: rgb(56, 56, 56);
+                h4{
+                font-size: 14px;
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+                }
+              
              }
 
             .authorPic{
@@ -31,11 +44,20 @@
         .postTitle{
             a{
                 color: black;
-                line-height:initial;
+                font-weight: 700;
+
+               
             }
             .subtitle{
                 a{
-                    color:grey
+                    color:grey;
+                    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-weight: 400;
+                    font-size: 16px;
+                  
+
+
+                 
                 }
             }
         }
@@ -46,10 +68,11 @@
             display: flex;
             justify-content: space-between;
             color: grey;
+            font-size: 14px;
 
             a{
-                color: black;
-                background-color: rgb(230, 230, 230);
+                color: grey;
+                background-color: rgb(243, 241, 241);
                 border-radius: 20px;
                 padding: 0 0.5rem;
             }

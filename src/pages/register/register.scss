@@ -1,20 +1,19 @@
-.login{
+.register{
     .floating{
         max-width:400px ;
         margin: 30px auto 0 auto;
         box-shadow: 0 20px 25px 0 rgba(0,0,0,.5) ;
-        padding: 5rem 4rem 6rem;
+        padding: 1rem 4rem 6rem;
 
         h2{
             border-bottom: 2px solid #1161ee;
             display: inline-block;
             padding-bottom: 2px;
             font-weight: 200;
-            margin-bottom: 50px;
         }
 
        
-        .loginForm{
+        .registerForm{
             display: flex;
             flex-direction: column;
             gap: 5px;
@@ -23,8 +22,8 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 0.5rem;
-                margin-bottom: 1rem;
                 margin-top: 1rem;
+
                 .imgLabel{
                     font-size: larger;
                     cursor: pointer;
@@ -44,36 +43,38 @@
             
 
             .inputLabel{
-                font-size:small;
+                font-size:12px;
                 margin-top: 1rem;
             }
             .input{
-                height: 50px;
+                height: 45px;
                 border-radius: 20px;
-            
+                
                 background-color: #f7f7f7;
                 border: transparent;
                 padding: 0 20px;
                 
 
             }
-            .loginCheckbox{
+            .registerCheckbox{
               padding-top: 0;
               margin-top: 0;
-            
+              margin-bottom: 2rem;
+              display: flex;
+              align-items: center;
               input{
                 margin-right: 7px;
-                margin-bottom: 3rem;
-               
                 
               }
-              
+              span{
+              font-size: 12px;
+              }
 
 
             }
 
-            .loginUpdate{
-                height: 50px;
+            .registerUpdate{
+                height:45px;
                 border-radius: 20px;
                 background-color: #1161ee;
                 color: white;
@@ -81,8 +82,8 @@
 
             }
 
-            .createAccount{
-                margin-top: 5rem;
+            .loginAccount{
+                margin-top: 2rem;
                 display: flex;
                 gap: 1rem;
                 align-items: center;
@@ -101,7 +102,6 @@
                     }
                 }
             }
-
             
            
         }

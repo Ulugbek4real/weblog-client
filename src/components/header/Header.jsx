@@ -1,13 +1,18 @@
 import "./header.scss";
-
+import banner from "../../assets/banner.svg"
 const Header = () => {
   return (
     <div className="header">
-    <ul className="headerTitles">
-      <li className="headerLinks">Trending</li>
-      <li className="headerLinks">Recent</li>
-      <li className="headerLinks">Categories  <i class="fa-solid fa-caret-down"></i></li>
-    </ul>
+   <div className="wrapper">
+   <div className="left">
+   <h1>Stay curious.</h1>
+   <p>Discover stories, thinking, and expertise from writers on any topic.</p>
+   <button>Start reading</button>
+   </div>
+   {/* <div className="right">
+<img src={banner}></img>
+   </div> */}
+   </div>
     </div>
   );
 }

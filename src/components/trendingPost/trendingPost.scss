@@ -1,0 +1,78 @@
+.trendingPost{
+    width: 100%;
+    position: relative;
+    .order{
+        font-size: 35px;
+        position: absolute;
+        top: -9px;
+        padding-right: 1px;
+    }
+    a{
+        text-decoration: none;
+    }
+    .wrapper{
+        width: 70%;
+        margin: 0 auto;
+        .postInfo{
+
+    
+            .postHeader{
+                display: flex;
+                gap: 0.7rem;
+                align-items: center;
+                font-size: 12px;
+                 a{
+                    color: rgb(56, 56, 56);
+                 }
+    
+                .authorPic{
+                    width: 25px;
+                    height: 25px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+    
+            }
+    
+            .postTitle{
+                a{
+                    color: black;
+                    line-height:initial;
+                    font-size: 11px;
+
+                }
+                
+                
+            }
+    
+    
+            .postFooter{
+    
+                display: flex;
+                justify-content: space-between;
+                color: grey;
+                font-size: 13px;
+    
+                a{
+                    color: black;
+                    background-color: rgb(230, 230, 230);
+                    border-radius: 20px;
+                    padding: 0 0.5rem;
+                }
+    
+               
+                .left{
+                    display: flex;
+                    gap: 0.5rem;
+                }
+            
+            }
+    
+        }
+    }
+   
+       
+    
+        
+    
+}

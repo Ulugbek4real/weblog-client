@@ -1,31 +1,29 @@
+import {Link} from 'react-router-dom';
 import "./topBar.scss";
 import profilePic from "../../assets/profilePic.jpeg";
-const TopBar = () => {
+import logo from "../../assets/w.png";
+
+function TopBar() {
+  const user = true;
   return (
-   <>
-     <div className="topBar">
-        <div className="top-left">
-        <i className="topIcon fa-brands fa-twitter"></i>
-        <i className="topIcon fa-brands fa-facebook"></i>
-        <i className="topIcon fa-brands fa-linkedin"></i>
-        </div>
-        <div className="top-center">
+    <>
+      <div className="topBar">
+        <div className="wrapper">
+          <div className="top-left"><h1>Weblog</h1></div>
+          <div className="top-right">
             <ul className="top-list">
-                <li className="top-list-item">PROGRAMMING</li>
-                <li className="top-list-item">MUSIC</li>
-                <li className="top-list-item">ART</li>
-                <li className="top-list-item">HEALTH</li>
+              <li className="top-list-item">Our story</li>
+              <li className="top-list-item">Membership</li>
+              <li className="top-list-item"><a href='/write'>Write</a></li>
+              <li className="top-list-item"><a href='/login'>Login</a></li>
+              <li className="top-list-item btn"><a href='/register'>Get started</a></li>
             </ul>
+          </div>
         </div>
-        <div className="top-right">
-        <i className="topIcon fa-solid fa-magnifying-glass"></i>
-        <i className="topIcon fa-regular fa-bookmark"></i>
-        <img className="profImg" src={profilePic}></img>
-        </div>
-     </div>
- 
-   </>
-  )
+      </div>
+
+    </>
+  );
 }
 
 export default TopBar

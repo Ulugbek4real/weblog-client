@@ -6,7 +6,7 @@ import AuthorPic from "../../assets/profilePic.jpeg";
 const SinglePost = () => {
   return (
     <div className='singlePost'>
-     <div className="header">
+     <div className="singleHeader">
             <div className="left">
                 <a className="author"><img src={AuthorPic} className="authorPic"></img></a>
                 <div className="infoContainer">

@@ -1,26 +1,47 @@
 .header{
-    margin-top: 60px;
+   height: 448px;
+   width: 100%;
+   background-color: #FFC017 ;
+   border-bottom: 1px solid black;
+   font-family: 'Varela', sans-serif;
+
+   .wrapper{
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid lightgrey;
-
-    ul{
-        display: flex;
-        margin: 0;
-        padding-bottom: 20px;
-
-
-        li{
-            list-style: none;
-            margin-right: 50px;
-            font-size: 18px;
-            font-family: 'Varela', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-
-        }
-
+    gap: 5rem;
+   .left{
+    h1{
+        font-size: 100px;
+        font-weight: 300;
+        margin-bottom:0.8rem;
+        margin-top: 1rem;
+       }
+       p{
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: 3rem;
+       }
+       button{
+        background-color: black;
+        color: white;
+        padding: 10px 40px;
+        border-radius: 30px;
+        font-size: 20px;
+        border: transparent;
+       }
+   }
+   .right{
+    img{
+        color:black;
     }
+   }
+
+   }
+
+  
+
+    
 
 }
