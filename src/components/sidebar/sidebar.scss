@@ -2,8 +2,11 @@
     flex: 4;
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 1px;
+  
     
     .sidebarItem{
+        position: sticky;
+        top: 95px;
    
         .sidebarTitle{
             font-size: 12px;

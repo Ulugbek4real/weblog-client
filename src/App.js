@@ -7,11 +7,12 @@ import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
+
 function App() {
   const user = true;
   return (
     <>
-    <TopBar />
+<TopBar />
 <Router>
 <Routes>
           <Route exact path="/" element={<Home />}/>

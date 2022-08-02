@@ -27,6 +27,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            a{
+                color:black;
+            }
               
         }
         .top-right{
@@ -57,8 +60,14 @@
                     color: white;
                 }
     
-            
             }
+            .profImg{
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
            }
         }
 
