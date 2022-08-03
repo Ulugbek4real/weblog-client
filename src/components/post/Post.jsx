@@ -16,7 +16,7 @@ const Post = () => {
             <div className="postFooter">
                 <div className="left">
                 <p className="postDate">11/11/2021</p>
-                <p class="dot">·</p>
+                <p class="dot firstDot">·</p>
                 <p className="readTime">4 min read</p>
                 <p class="dot">·</p>
                 <a className="" href="#">education</a>

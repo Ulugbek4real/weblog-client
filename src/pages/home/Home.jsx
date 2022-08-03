@@ -8,15 +8,24 @@ import axios from "axios";
 
 
 const Home = () => {
-  const user = true;
+  const [ posts, setPosts ] = useState([]);
+  
+
+  useEffect(()=>{
+    const fetchPosts = async () => {
+      const res = await axios.get("http://localhost:3000/api/posts");
+      console.log(res);
+     };
+fetchPosts();
+  },[])
 
   return (
 <>
-   {!user && <Header />}
-   {!user && <Trending />}
+   <Trending />
     <div className='home'>
-    <Posts />
     <Sidebar />
+    <Posts />
+ 
     </div>
     </>
   )
