@@ -1,15 +1,13 @@
 import "./posts.scss"
 import Post from "../post/Post"
-const Posts = () => {
+const Posts = ({posts}) => {
   return (
     <div className="posts">
     <div className="recent-br"><h3><i class="fa-regular fa-clock clock"></i> Recent on Weblog</h3></div>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {posts.map((p)=>(
+           <Post key={p._id} post={p}/>
+      ))}
+       
     </div>
   )
 }

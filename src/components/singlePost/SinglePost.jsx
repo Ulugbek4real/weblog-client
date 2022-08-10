@@ -1,31 +1,41 @@
 import "./singlePost.scss";
 import PostPic from "../../assets/post.jpeg";
 import AuthorPic from "../../assets/profilePic.jpeg";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const SinglePost = () => {
+const location = useLocation();
+const path = location.pathname.split("/")[2];
+const [ post, setPost ] = useState({});
+useEffect(()=>{
+const getPost = async () => {
+    const res = await axios.get("http://localhost:3000/api/posts/"+path);
+    setPost(res.data)
+};
+getPost();
+
+},[path])
+
   return (
     <div className='singlePost'>
-        <h1 className="title">5 Books I Have Recommended Over 100 Times</h1>
-        <h3 className="subTitle">And why I’ll never stop talking about them</h3>
+        <h1 className="title">{post.title}</h1>
+        <h3 className="subTitle">{post.desc}</h3>
         <img src={PostPic} className="postImg"></img>
-        <p className="story">Some of the best books I have found are through recommendations. It’s either my bookworm friends or through podcasts of people I admire recommending a book that ends up on my shelf.
-
-Although I refrain from pushing people to read books I have loved, but there are certain books that I can’t shut up about. They have helped me tremendously, and as my way of giving back to the authors, I have recommended some of these books over a hundred times.
-
-They are poignant, thought-provoking, and helped me immensely, and I reckon they can be a beacon of inspiration for people following the same journey. Here’s a list of 5 such books.</p>
-
+        <p className="story">{post.text}</p>
 <div className="singleHeader">
             <div className="left">
-                <a className="author"><img src={AuthorPic} className="authorPic"></img></a>
+                <Link to={`/?user=${post.username}`} className="author"><img src={AuthorPic} className="authorPic"></img></Link>
                 <div className="infoContainer">
-                    <h4 className="name">Ulugbek4real</h4>
+                    <Link className="Link" to={`/?user=${post.username}`}><h4 className="name">{post.username}</h4></Link>
                     <div className="details">
-                    <p className="postDate">11/11/2021</p>
-                <p class="dot firstDot">·</p>
+                    <p className="postDate">{new Date(post.createdAt).toLocaleDateString()}</p>
+                <p class="dot ">·</p>
                 <p className="readTime">4min</p>
-                <p class="dot">·</p>
-                <a className="" href="#"><i className=" play fa-regular fa-circle-play"></i> Listen</a>
+                <p class="dot firstDot">·</p>
+                <a className="listen" href="#"><i className=" play fa-regular fa-circle-play"></i> Listen</a>
                     </div>
                 </div>
             </div>

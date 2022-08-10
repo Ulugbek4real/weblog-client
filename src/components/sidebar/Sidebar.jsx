@@ -1,21 +1,25 @@
 import "./sidebar.scss"
+import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+import axios from "axios";
 
 const Sidebar = () => {
+  const [ cats, setCats ] = useState([]);
+
+  useEffect(()=>{
+const getCats = async () => {
+const res = await axios.get("http://localhost:3000/api/categories/");
+setCats(res.data);
+};
+getCats();
+  },[])
   return (
     <div className="sidebar">
         <div className="sidebarItem">
         <span className="sidebarTitle">DISCOVER MORE OF WHAT MATTERS TO YOU</span>
         <div className="sidebarLinks">
-            
-            <a className="sidebarLink" href="#"><p>Self </p></a>
-            <a className="sidebarLink" href="#"><p>Relationships</p></a>
-            <a className="sidebarLink" href="#"><p>Data Science</p></a>
-            <a className="sidebarLink" href="#"><p>Programming</p></a>
-            <a className="sidebarLink" href="#"><p>Productivity</p></a>
-            <a className="sidebarLink" href="#"><p>Javascript</p></a>
-            <a className="sidebarLink" href="#"><p>Machine Learning</p></a>
-            <a className="sidebarLink" href="#"><p>Politics</p></a>
-            <a className="sidebarLink" href="#"><p>Heath</p></a>
+            {cats.map((c) => ( <Link to={`/?cat=${c.name}`} className="sidebarLink"><p>{c.name}</p></Link>))}
+           
 
         </div>
         <div className="extraLinks">

@@ -1,20 +1,21 @@
 import "./trendingPost.scss";
 import AuthorPic from "../../assets/profilePic.jpeg"
 import PostPic from "../../assets/post.jpeg";
+import { Link } from "react-router-dom";
 const TrendingPost = () => {
   return (
     <div className="trendingPost">
      <div className="post trending-post">
      <a className="cat" href="#">education</a>
-     <img className="postPic" src={PostPic}></img>
+    <Link to="/post/postID"><img className="postPic" src={PostPic}></img></Link>
         <div className="postInfo">
             
             <div className="postTitle">
-                <a href="/post/postID" className="title"><h2>8 High-Income Skills You Can Learn In Your Spare Time</h2></a>
-                 <div className="subtitle"><a href="/post/postID">The more skills you develop, the more money you'll make.</a></div>
+                <Link to="/post/postID" className="title"><h2>8 High-Income Skills You Can Learn In Your Spare Time</h2></Link>
+                 <div className="subtitle"><Link to="/post/postID">The more skills you develop, the more money you'll make.</Link></div>
             </div>
             <div className="postHeader">
-                <a href="#" className="author "><h4 className="trending-author"> By Ulugbek4real</h4></a>
+                <Link to="#" className="author "><h4 className="trending-author"> By Ulugbek4real</h4></Link>
             </div>
             <div className="postFooter">
                 <div className="left">

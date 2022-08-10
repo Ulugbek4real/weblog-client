@@ -1,12 +1,12 @@
 import "./subMenu.scss"
-
+import { Link } from "react-router-dom"
 const SubMenu = () => {
   return (
     <aside className="submenu">
-    <a href="/write">Write</a>
-    <a href="/settings">Edit profile</a>
-    <a href="/">Posts</a>
-    <a  className="logout-red" href="#">Logout</a>
+    <Link to="/write">Write</Link>
+    <Link to="/settings">Edit profile</Link>
+    <Link to="/">Posts</Link>
+    <Link to="/settings" className="logout-red">Logout</Link>
   
 
     </aside>

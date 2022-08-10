@@ -6,14 +6,13 @@ import Write from "./pages/write/Write";
 import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
+import {Route,Routes} from "react-router-dom";
 
 function App() {
-  const user = true;
+  const user = false;
   return (
     <>
 <TopBar />
-<Router>
 <Routes>
           <Route exact path="/" element={<Home />}/>
           <Route exact path="/register" element={ user ? <Home /> : <Register />}/>
@@ -23,7 +22,6 @@ function App() {
           <Route exact path="/write" element={ user ? <Write /> : <Register />}/>
        
     </Routes>
-</Router>
 </>
   );
 }

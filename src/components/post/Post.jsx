@@ -1,25 +1,29 @@
 import "./post.scss";
 import PostPic from "../../assets/post.jpeg";
 import AuthorPic from "../../assets/profilePic.jpeg";
-const Post = () => {
+import { Link } from "react-router-dom";
+const Post = ({post}) => {
   return (
     <div className="post">
         <div className="postInfo">
             <div className="postHeader">
                 <img className="authorPic" src={AuthorPic}></img>
-                <a href="#" className="author"><h4>Ulugbek4real</h4></a>
+                <a href="#" className="author"><h4>{post.username}</h4></a>
             </div>
             <div className="postTitle">
-                <a href="/post/postID" className="title"><h2>8 High-Income Skills You Can Learn In Your Spare Time</h2></a>
-                 <div className="subtitle"><a href="/post/postID">The more skills you develop, the more money you'll make.</a></div>
+                <Link to={`/post/${post._id}`} className="title"><h2>{post.title}</h2></Link>
+                 <div className="subtitle"><Link to={`/post/${post._id}`}>{post.desc}</Link></div>
             </div>
             <div className="postFooter">
                 <div className="left">
-                <p className="postDate">11/11/2021</p>
+                <p className="postDate">{new Date(post.createdAt).toLocaleDateString()}</p>
                 <p class="dot firstDot">·</p>
                 <p className="readTime">4 min read</p>
                 <p class="dot">·</p>
-                <a className="" href="#">education</a>
+                {post.categories.map((name,index)=> (
+                  <a key={index} className="" href="#">{name}</a>
+                  ))}
+               
                 </div>
                 <div className="right">
                 <i className=" saved fa-regular fa-bookmark"></i>
@@ -27,8 +31,8 @@ const Post = () => {
             </div>
 
         </div>
-       
-            <img className="postPic" src={PostPic}></img>
+       <Link to={`/post/${post._id}`}><img className="postPic" src={PostPic}></img></Link>
+            
        
     </div>
   )
