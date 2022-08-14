@@ -1,13 +1,20 @@
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import "./topBar.scss";
-import profilePic from "../../assets/profilePic.jpeg";
-import logo from "../../assets/w.png";
+import avatar from "../../assets/avatar.webp";
 import SubMenu from '../subMenu/SubMenu';
-import { useState } from 'react';
-
+import { useState, useContext, useEffect } from 'react';
+import { Context } from "../../context/Context"
 function TopBar() {
-  const user = false;
+ 
+const {user,dispatch} = useContext(Context);
+const handleLogout = () => {
+dispatch({type:"LOGOUT"})
+};
   const [ isSubmenuOpen, setIsSubmenuOpen ] = useState(false);
+  const location = useLocation();
+  useEffect(()=>{
+  setIsSubmenuOpen(false);
+  },[location.key])
   return (
     <>
       <div className="topBar">
@@ -16,10 +23,10 @@ function TopBar() {
           <div className="top-right">
            { user ? <ul className="top-list">
               <li className="top-list-item dissappear">Our story</li>
-              <li className="top-list-item dissappear">Logout</li>
+              <li className="top-list-item dissappear" onClick={handleLogout}>Logout</li>
               <li className="top-list-item dissappear"><Link to='/write'>Write</Link></li>
               <li className="top-list-item"><a href='/login'><i className="topIcon fa-regular fa-bookmark"></i></a></li>
-              <li className="top-list-item"><img onClick={()=>setIsSubmenuOpen(!isSubmenuOpen)} className="profImg" src={profilePic}></img></li>
+              <li className="top-list-item"><img onClick={()=>setIsSubmenuOpen(!isSubmenuOpen)} className="profImg" src={user.profilePic ? user.profilePic : avatar}></img></li>
             </ul> : <ul className="top-list">
               <li className="top-list-item dissappear">Our story</li>
               <li className="top-list-item dissappear">Membership</li>

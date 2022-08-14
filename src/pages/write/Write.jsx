@@ -1,21 +1,57 @@
 import "./write.scss";
-import PostImg from "../../assets/post.jpeg";
+import { useContext, useState } from "react";
+import axios from "axios";
+import { Context } from "../../context/Context";
+ 
 const Write = () => {
+  const [ title, setTitle ] = useState("");
+  const [ desc, setDesc ] = useState("");
+  const [ text, setText ] = useState("");
+  const [ file, setFile ] = useState(null);
+const { user } = useContext(Context);
+  
+const handleSubmit = async(e) =>{
+    e.preventDefault();
+    const newPost = {
+      username: user.username,
+      title,
+      desc,
+      text,
+    };
+    if(file){
+      const data = new FormData();
+      const filename = Date.now() + file.name;
+      data.append("name",filename);
+      data.append("file",file);
+      newPost.photo = filename;
+      try {
+        await axios.post("http://localhost:3000/api/upload",data)
+      } catch (err) {}
+    }
+    try {
+     const res = await axios.post("http://localhost:3000/api/posts/",newPost);
+     window.location.replace("/post/" + res.data._id)
+     
+    } catch (err) {
+   
+    }
+  
+  };
   return (
     <div className="write">
-    <img className="writeImage" src={PostImg}></img>
+ {file &&    <img className="writeImage" src={URL.createObjectURL(file)}></img>}
       
-      <form className="writeForm">
+      <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup">
         <label htmlFor="fileInput">
            <i class="fa-solid fa-plus"></i>
               </label>
-              <input type="file" id="fileInput" style={{display:"none"}}></input>
-              <input type="text" placeholder="Enter your title..." className ="writeInput" autoFocus={true}></input>
-          
+              <input type="file" id="fileInput" style={{display:"none"}} onChange={(e)=> setFile(e.target.files[0])}></input>
+              <input type="text" placeholder="Enter your title..." className ="writeInput" autoFocus={true} onChange={e => setTitle(e.target.value)}></input>
         </div>
+        <input type="text" placeholder="Enter your subtitle..." className ="writeInput"  onChange={e => setDesc(e.target.value)}></input>
         <div className="writeFormGroup">
-              <textarea placeholder="Tell your story..." type="text" className="writeInput writeText"></textarea>
+              <textarea placeholder="Tell your story..." type="text" className="writeInput writeText" onChange={e => setText(e.target.value)}></textarea>
  
         </div>
    <button className="sumbit-btn" type="submit">Publish</button>

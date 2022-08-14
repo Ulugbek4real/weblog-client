@@ -8,7 +8,7 @@ const Login = () => {
 
   const userRef = useRef();
   const passwordRef = useRef();
-  const { user, dispatch, isFetching } = useContext(Context)
+  const { dispatch, isFetching } = useContext(Context)
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({type:"LOGIN_START"});
@@ -22,7 +22,7 @@ const Login = () => {
       dispatch({type:"LOGIN_FAILURE"});
     }
   };
-console.log(user);
+
   return (
     <div className="login">
     <div className="floating">
@@ -36,7 +36,7 @@ console.log(user);
  <div  className="loginCheckbox" >
   <input type="checkbox" className="checkbox"></input><span>Show password</span>
  </div>
-  <button className="loginUpdate" type="submit">LOGIN</button>
+  <button className="loginUpdate" type="submit" disabled={isFetching}>LOGIN</button>
 <div className="createAccount">
   <span>Do not have an account?</span>
   <Link to="/register">Create One</Link>

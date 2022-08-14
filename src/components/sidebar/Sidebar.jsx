@@ -18,7 +18,7 @@ getCats();
         <div className="sidebarItem">
         <span className="sidebarTitle">DISCOVER MORE OF WHAT MATTERS TO YOU</span>
         <div className="sidebarLinks">
-            {cats.map((c) => ( <Link to={`/?cat=${c.name}`} className="sidebarLink"><p>{c.name}</p></Link>))}
+            {cats.map((c,index) => ( <Link key={index} to={`/?cat=${c.name}`} className="sidebarLink"><p>{c.name}</p></Link>))}
            
 
         </div>

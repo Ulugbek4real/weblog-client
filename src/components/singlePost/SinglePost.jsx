@@ -1,5 +1,5 @@
 import "./singlePost.scss";
-import PostPic from "../../assets/post.jpeg";
+// import PostPic from "../../assets/post.jpeg";
 import AuthorPic from "../../assets/profilePic.jpeg";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -7,6 +7,7 @@ import axios from "axios";
 
 
 const SinglePost = () => {
+const PF  = "http://localhost:3000/images/"
 const location = useLocation();
 const path = location.pathname.split("/")[2];
 const [ post, setPost ] = useState({});
@@ -23,7 +24,7 @@ getPost();
     <div className='singlePost'>
         <h1 className="title">{post.title}</h1>
         <h3 className="subTitle">{post.desc}</h3>
-        <img src={PostPic} className="postImg"></img>
+        <img src={PF + post.photo} className="postImg"></img>
         <p className="story">{post.text}</p>
 <div className="singleHeader">
             <div className="left">

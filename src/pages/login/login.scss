@@ -79,6 +79,11 @@
                 color: white;
                 border: transparent;
 
+                &:disabled{
+                    background-color: #9dbdf6;
+                    cursor: not-allowed;
+                }
+
             }
 
             .createAccount{

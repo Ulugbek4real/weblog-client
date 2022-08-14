@@ -66,12 +66,12 @@
                 }
             }
             .subtitle{
-                a{
+                p{
                     color:grey;
                     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
                     font-weight: 400;
                     font-size: 0.8rem;
-                    line-height: 0;
+                    line-height: 1.2;
                     @media (min-width:62.25rem) {
                         font-size: 0.9rem;
                     }

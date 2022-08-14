@@ -2,7 +2,7 @@ import "./register.scss";
 import ProfPic from "../../assets/profilePic.jpeg";
 import { useState } from "react";
 import axios from "axios";
-
+import {Link} from "react-router-dom"
 
 const Register = () => {
   const [ username, setUsername ] = useState("");
@@ -51,7 +51,7 @@ try {
 { error &&   <span style={{color:"red"}}>Something went wrong!</span>}
   <div className="loginAccount">
   <span>Already have an account?</span>
-  <a href="#">Login</a>
+  <Link to="/login" href="#">Login</Link>
 </div>
 
      </form>

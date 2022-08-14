@@ -1,5 +1,4 @@
 import "./home.scss";
-import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Trending from "../../components/tranding/Trending";
@@ -17,7 +16,6 @@ const Home = () => {
   useEffect(()=>{
     const fetchPosts = async () => {
       const res = await axios.get("http://localhost:3000/api/posts"+search);
-      console.log(res);
   setPosts(res.data)
      };
 fetchPosts();
@@ -25,7 +23,7 @@ fetchPosts();
 
   return (
 <>
-   <Trending />
+   <Trending posts={posts} />
     <div className='home'>
     <Sidebar />
     <Posts posts={posts}/>

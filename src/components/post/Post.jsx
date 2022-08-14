@@ -3,7 +3,9 @@ import PostPic from "../../assets/post.jpeg";
 import AuthorPic from "../../assets/profilePic.jpeg";
 import { Link } from "react-router-dom";
 const Post = ({post}) => {
+  const PF  = "http://localhost:3000/images/"
   return (
+    
     <div className="post">
         <div className="postInfo">
             <div className="postHeader">
@@ -12,7 +14,7 @@ const Post = ({post}) => {
             </div>
             <div className="postTitle">
                 <Link to={`/post/${post._id}`} className="title"><h2>{post.title}</h2></Link>
-                 <div className="subtitle"><Link to={`/post/${post._id}`}>{post.desc}</Link></div>
+                 <div className="subtitle"><Link to={`/post/${post._id}`}><p>{post.desc}</p></Link></div>
             </div>
             <div className="postFooter">
                 <div className="left">
@@ -31,7 +33,7 @@ const Post = ({post}) => {
             </div>
 
         </div>
-       <Link to={`/post/${post._id}`}><img className="postPic" src={PostPic}></img></Link>
+       <Link to={`/post/${post._id}`}><img className="postPic" src={PF + post.photo}></img></Link>
             
        
     </div>

@@ -64,3 +64,12 @@
    
 
 }
+.writeInput{
+    width: 100%;
+    border: transparent;
+    font-size: 25px;
+    padding-left: 45px;
+    &:focus{
+        outline:none ;
+     }
+}
