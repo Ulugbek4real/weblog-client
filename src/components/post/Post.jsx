@@ -1,16 +1,16 @@
 import "./post.scss";
-import PostPic from "../../assets/post.jpeg";
 import AuthorPic from "../../assets/profilePic.jpeg";
 import { Link } from "react-router-dom";
 const Post = ({post}) => {
   const PF  = "http://localhost:3000/images/"
+
   return (
     
     <div className="post">
         <div className="postInfo">
             <div className="postHeader">
                 <img className="authorPic" src={AuthorPic}></img>
-                <a href="#" className="author"><h4>{post.username}</h4></a>
+                <Link to={`/?user=${post.username}`} className="author"><h4>{post.username}</h4></Link>
             </div>
             <div className="postTitle">
                 <Link to={`/post/${post._id}`} className="title"><h2>{post.title}</h2></Link>
@@ -23,7 +23,7 @@ const Post = ({post}) => {
                 <p className="readTime">4 min read</p>
                 <p class="dot">·</p>
                 {post.categories.map((name,index)=> (
-                  <a key={index} className="" href="#">{name}</a>
+                  <Link to={`/?cat=${name}`} key={index} className="" href="#">{name}</Link>
                   ))}
                
                 </div>

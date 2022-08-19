@@ -1,5 +1,5 @@
 import "./register.scss";
-import ProfPic from "../../assets/profilePic.jpeg";
+import ProfPic from "../../assets/avatarProfPic.jpeg";
 import { useState } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom"
@@ -44,8 +44,6 @@ try {
   <label className="inputLabel">PASSWORD</label>
   <input className="input" type="password" onChange={(e) => setPassword(e.target.value)}></input>
  <div  className="registerCheckbox" >
- 
-  <input type="checkbox"></input><span>Show password</span>
  </div>
   <button className="registerUpdate" type="submit">REGISTER</button>
 { error &&   <span style={{color:"red"}}>Something went wrong!</span>}

@@ -11,8 +11,6 @@ const Home = () => {
   const [ posts, setPosts ] = useState([]);
   const {search} = useLocation();
 
-
-
   useEffect(()=>{
     const fetchPosts = async () => {
       const res = await axios.get("http://localhost:3000/api/posts"+search);
@@ -23,7 +21,7 @@ fetchPosts();
 
   return (
 <>
-   <Trending posts={posts} />
+{ !search &&    <Trending posts={posts} />}
     <div className='home'>
     <Sidebar />
     <Posts posts={posts}/>

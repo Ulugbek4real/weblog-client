@@ -36,6 +36,9 @@
             p{
                 font-weight: 300;
             }
+            @media (max-width:24.375rem) {
+                font-size: 10px;
+            }
           }
         }
         .extraLinks{
@@ -50,6 +53,10 @@
                 font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-weight: 300;
                 font-size: 13px;
+                @media (max-width:24.375rem) {
+                    font-size: 10px;
+                    margin-top: 0;
+                }
         
             }
         }

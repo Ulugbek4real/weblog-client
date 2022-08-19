@@ -23,6 +23,11 @@
                 height: 40px;
                 object-fit: cover;
                 border-radius: 50%;
+                @media (max-width:25.3rem) {
+                width: 35px;
+                height: 35px;
+                object-fit: cover;
+                            }
             }
             .infoContainer{
                 display: flex;
@@ -30,11 +35,17 @@
                 justify-content:space-between;
                 .name{
                     font-weight: 500;
+                    @media (max-width:25.3rem) {
+                        font-size: 0.8rem;
+                                }
                 }
                 .details{
                     display: flex;
                     gap: 0.6rem;
                     color: rgb(159, 159, 159);
+                    @media (max-width:25.3rem) {
+                        font-size: 0.8rem;
+                                }
                     .firstDot{
                         @media (max-width:25.3rem) {
                             display: none;
@@ -111,6 +122,9 @@
         @media (max-width:43.75rem) {
             font-size: 2rem;
           }
+          @media (max-width:25.3rem) {
+            font-size: 1.4rem;
+                    }
 
     }
     .subTitle{
@@ -121,6 +135,9 @@
       @media (max-width:43.75rem) {
         font-size: 1.2rem;
       }
+      @media (max-width:25.3rem) {
+        font-size: 1rem;
+                }
     }
 
     .postImg{
@@ -128,6 +145,9 @@
         margin-top: 40px;
         max-height:500px;
         object-fit: cover;
+        @media (max-width:25.3rem) {
+            margin-top: 20px;
+                    }
     }
 
     .story{
@@ -136,6 +156,10 @@
         @media (max-width:43.75rem) {
             font-size: 1.2rem;
           }
+          @media (max-width:25.3rem) {
+            font-size: 1rem;
+            margin-top: 20px;
+                    }
         line-height: 1.5;
         color: rgb(76, 76, 76);
         

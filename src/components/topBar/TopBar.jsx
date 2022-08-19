@@ -7,6 +7,7 @@ import { Context } from "../../context/Context"
 function TopBar() {
  
 const {user,dispatch} = useContext(Context);
+const PF  = "http://localhost:3000/images/";
 const handleLogout = () => {
 dispatch({type:"LOGOUT"})
 };
@@ -23,10 +24,10 @@ dispatch({type:"LOGOUT"})
           <div className="top-right">
            { user ? <ul className="top-list">
               <li className="top-list-item dissappear">Our story</li>
-              <li className="top-list-item dissappear" onClick={handleLogout}>Logout</li>
+              <li className="top-list-item dissappear" onClick={handleLogout}><Link to='/login'>Logout</Link></li>
               <li className="top-list-item dissappear"><Link to='/write'>Write</Link></li>
               <li className="top-list-item"><a href='/login'><i className="topIcon fa-regular fa-bookmark"></i></a></li>
-              <li className="top-list-item"><img onClick={()=>setIsSubmenuOpen(!isSubmenuOpen)} className="profImg" src={user.profilePic ? user.profilePic : avatar}></img></li>
+              <li className="top-list-item"><img onClick={()=>setIsSubmenuOpen(!isSubmenuOpen)} className="profImg" src={user.profilePic ? PF + user.profilePic : avatar}></img></li>
             </ul> : <ul className="top-list">
               <li className="top-list-item dissappear">Our story</li>
               <li className="top-list-item dissappear">Membership</li>

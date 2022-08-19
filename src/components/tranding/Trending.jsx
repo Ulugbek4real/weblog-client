@@ -1,8 +1,9 @@
 import "./trending.scss";
-import PostPic from "../../assets/post.jpeg";
+import PostPic from "../../assets/16608921909570_w8jlFZc7ywHFwRzc.jpeg";
 import TrendingPost from "../../components/trendingPost/TrendingPost.jsx";
 import { Link } from "react-router-dom";
 const Trending = ({posts}) => {
+
   return (
   
     <div className="trending">
@@ -10,13 +11,16 @@ const Trending = ({posts}) => {
     <div className="wrapper">
     <div className="big-post POST">
     <div className="trending-br"><h3> <i class="fa-solid fa-arrow-trend-up up"></i> Trending on Weblog</h3></div>
-     <Link to="/post/62f7e0c2248d77bd50df08a7"> <img className="big-post-img" src={PostPic}></img></Link>
-      <div className="big-post-title"><h4>Featured project</h4>
-      <h2>8 High-Income Skills You Can Learn In Your Spare Time</h2></div>
+     <Link to="/post/62ff341e9e24d2eff6d2e48f"> <img className="big-post-img" src={PostPic}></img></Link>
+      <div className="big-post-title"><h4>Featured post</h4>
+      <h2>Is Every Age the Best Age to Be? </h2>
+      <span>Like everybody’s dog is the best dog in the world</span>
+      </div>
     </div>
-    {posts.map((p,index)=>{ 
-      return <TrendingPost key={index} post={p}className="POST"/>
+    {posts.slice(0, 4).map((post,index)=>{
+      return  <TrendingPost key={index} post={post} className="POST"/>
     })}
+   
     </div>
        
 

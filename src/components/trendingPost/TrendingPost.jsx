@@ -1,13 +1,11 @@
 import "./trendingPost.scss";
-import AuthorPic from "../../assets/profilePic.jpeg"
-import PostPic from "../../assets/post.jpeg";
 import { Link } from "react-router-dom";
 const TrendingPost = ({post}) => {
     const PF  = "http://localhost:3000/images/"
   return (
     <div className="trendingPost">
      <div className="post trending-post">
-     <a className="cat" href="#">education</a>
+  {post.categories.map((cat)=> <a className="cat" href="#">{cat}</a>)}
      <Link to={`/post/${post._id}`}><img className="postPic" src={PF + post.photo}></img></Link>
         <div className="postInfo">
             
