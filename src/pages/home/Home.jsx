@@ -1,19 +1,22 @@
+import { useEffect, useContext, useState } from "react";
 import "./home.scss";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Trending from "../../components/tranding/Trending";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import {axiosInstance} from "../../configs";
 import { useLocation } from "react-router-dom";
+import Header from "../../components/header/Header"
+import { Context } from "../../context/Context"
 
 
 const Home = () => {
+  const {user} = useContext(Context);
   const [ posts, setPosts ] = useState([]);
   const {search} = useLocation();
-
+ 
   useEffect(()=>{
     const fetchPosts = async () => {
-      const res = await axios.get("http://localhost:3000/api/posts"+search);
+      const res = await axiosInstance.get("/posts"+search);
   setPosts(res.data)
      };
 fetchPosts();
@@ -21,7 +24,9 @@ fetchPosts();
 
   return (
 <>
+ {!search && (!user &&<Header />)}
 { !search &&    <Trending posts={posts} />}
+
     <div className='home'>
     <Sidebar />
     <Posts posts={posts}/>

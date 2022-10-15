@@ -2,7 +2,7 @@ import "./settings.scss";
 import ProfPic from "../../assets/profilePic.jpeg";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
-import axios from "axios";
+import axiosInstance from "../../configs";
 const Settings = () => {
   const {user, dispatch } = useContext(Context)
   const [ file, setFile ] = useState(null);
@@ -30,11 +30,11 @@ const Settings = () => {
       data.append("file",file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("http://localhost:3000/api/upload",data)
+        await axiosInstance.post("/upload",data)
       } catch (err) {}
     }
     try {
-    const res = await axios.put("http://localhost:3000/api/users/" + user._id, updatedUser);
+    const res = await axiosInstance.put("/users/" + user._id, updatedUser);
     setSuccess(true)
     dispatch({type:"UPDATE_SUCCESS", payload : res.data })
      
@@ -43,14 +43,13 @@ const Settings = () => {
     }
   
   };
-
   return (
     <div className="settings">
     <div className="floating">
       <h2>UPDATE</h2>
      <form className="settingsForm" onSubmit={handleSubmit}>
     <div className="img-container">
-    <img src={file? URL.createObjectURL(file) : PF + user.profilePic} className="profPic"></img>
+    <img src={file ? URL.createObjectURL(file): user.profilePic ?(PF + user.profilePic): (PF + "avatar.webp") } className="profPic"></img>
       <label className="imgLabel" htmlFor="fileInput">Update profile picture</label>
        <input type="file" id="fileInput" style={{display:"none"}} onChange={e => setFile(e.target.files[0])}></input>
     </div>
@@ -60,7 +59,7 @@ const Settings = () => {
   <label className="inputLabel">EMAIL</label>
   <input className="input" type="email" required  placeholder={user.email}  onChange={e => setEmail(e.target.value)}></input>
   <label className="inputLabel">PASSWORD</label>
-  <input className="input" type="password"  onChange={e => setPassword(e.target.value)}></input>
+  <input className="input" type="password" required onChange={e => setPassword(e.target.value)}></input>
  <div  className="settingsCheckbox" >
  </div>
   <button className="settingsUpdate" type="submit">UPDATE</button>

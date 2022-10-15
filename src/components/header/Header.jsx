@@ -1,17 +1,23 @@
 import "./header.scss";
-import banner from "../../assets/banner.svg"
+import { Link} from "react-router-dom";
+
+
 const Header = () => {
   return (
     <div className="header">
    <div className="wrapper">
    <div className="left">
-   <h1>Stay curious.</h1>
-   <p>Discover stories, thinking, and expertise from writers on any topic.</p>
-   <button>Start reading</button>
+   <div className="back-square"></div>
+   <div className="back-square"></div>
+   <div className="back-square"></div>
+   <div className="back-square"></div>
+   <h1> Create and share your stories</h1>
+   <p>Find your inspiration through stories by different authors and share your own & inspire others.</p>
+  <div className="action-btn">
+  <a href="#trending" className="action-btn1">Start reading</a>
+  <Link className="action-btn2" to='/write'>Start writing</Link>
+  </div>
    </div>
-   {/* <div className="right">
-<img src={banner}></img>
-   </div> */}
    </div>
     </div>
   );

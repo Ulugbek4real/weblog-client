@@ -3,7 +3,7 @@ import "./singlePost.scss";
 import AuthorPic from "../../assets/profilePic.jpeg";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axiosInstance from "../../configs";
 import { Context } from "../../context/Context";
 import {useContext} from 'react';
 
@@ -15,7 +15,7 @@ const path = location.pathname.split("/")[2];
 const [ post, setPost ] = useState({});
 useEffect(()=>{
 const getPost = async () => {
-    const res = await axios.get("http://localhost:3000/api/posts/"+path);
+    const res = await axiosInstance.get("/posts/"+path);
     setPost(res.data)
 };
 getPost();
@@ -30,13 +30,13 @@ getPost();
         <p className="story">{post.text}</p>
 <div className="singleHeader">
             <div className="left">
-                <Link to={`/?user=${post.username}`} className="author"><img src={AuthorPic} className="authorPic"></img></Link>
+                <Link to={`/?user=${post.username}`} className="author"><img src={user?.username === post.username && user?.profilePic ? PF + user.profilePic : post.userPic ? PF+post.userPic : PF + "avatar.webp" } className="authorPic"></img></Link>
                 <div className="infoContainer">
                     <Link className="Link" to={`/?user=${post.username}`}><h4 className="name">{post.username}</h4></Link>
                     <div className="details">
                     <p className="postDate">{new Date(post.createdAt).toLocaleDateString()}</p>
                 <p class="dot ">·</p>
-                <p className="readTime">4min</p>
+                <p className="readTime">{post.long}min</p>
                 <p class="dot firstDot">·</p>
                 <a className="listen" href="#"><i className=" play fa-regular fa-circle-play"></i> Listen</a>
                     </div>

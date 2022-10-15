@@ -5,7 +5,7 @@
     top: 0;
     display: flex;
     align-items: center;
-    border-bottom: solid black 1px;
+    // border-bottom: solid black 1px;
     a{
         text-decoration: none;
 
@@ -20,6 +20,7 @@
         align-items: center;
         justify-content: space-between;
         width: 80%;
+        max-width: 72rem;
         @media (max-width:43.75rem) {
             width: 90vw;
         }

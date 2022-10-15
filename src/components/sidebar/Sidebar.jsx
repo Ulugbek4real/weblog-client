@@ -1,14 +1,14 @@
 import "./sidebar.scss"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import axios from "axios";
+import axiosInstance from "../../configs";
 
 const Sidebar = () => {
   const [ cats, setCats ] = useState([]);
 
   useEffect(()=>{
 const getCats = async () => {
-const res = await axios.get("http://localhost:3000/api/categories/");
+const res = await axiosInstance.get("/categories/");
 setCats(res.data);
 };
 getCats();
@@ -23,15 +23,15 @@ getCats();
 
         </div>
         <div className="extraLinks">
-        <a className="extraLink" href="#"><p>Help </p></a>
-        <a className="extraLink" href="#"><p>Status </p></a>
-        <a className="extraLink" href="#"><p>Writers </p></a>
-        <a className="extraLink" href="#"><p>Blog </p></a>
-        <a className="extraLink" href="#"><p>Careers </p></a>
-        <a className="extraLink" href="#"><p>Privacy</p></a>
-        <a className="extraLink" href="#"><p>Terms </p></a>
-        <a className="extraLink" href="#"><p>About </p></a>
-        <a className="extraLink" href="#"><p>Knowable </p></a>
+        <a className="extraLink"><p>Help </p></a>
+        <a className="extraLink"><p>Status </p></a>
+        <a className="extraLink"><p>Writers </p></a>
+        <a className="extraLink"><p>Blog </p></a>
+        <a className="extraLink"><p>Careers </p></a>
+        <a className="extraLink"><p>Privacy</p></a>
+        <a className="extraLink"><p>Terms </p></a>
+        <a className="extraLink"><p>About </p></a>
+        <a className="extraLink"><p>Knowable </p></a>
         </div>
 
         </div>

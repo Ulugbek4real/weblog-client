@@ -5,7 +5,7 @@ const TrendingPost = ({post}) => {
   return (
     <div className="trendingPost">
      <div className="post trending-post">
-  {post.categories.map((cat)=> <a className="cat" href="#">{cat}</a>)}
+  {post.categories.map((cat,i)=> <a key={i} className="cat" href="#">{cat}</a>)}
      <Link to={`/post/${post._id}`}><img className="postPic" src={PF + post.photo}></img></Link>
         <div className="postInfo">
             

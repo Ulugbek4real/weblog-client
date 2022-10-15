@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./login.scss";
 import { useContext, useRef } from "react";
-import axios from "axios";
+import axiosInstance from "../../configs";
 
 const Login = () => {
 
@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({type:"LOGIN_START"});
     try {
-      const res = await axios.post("http://localhost:3000/api/auth/login",{
+      const res = await axiosInstance.post("/auth/login",{
         username: userRef.current.value,
         password: passwordRef.current.value,
       });
@@ -33,9 +33,9 @@ const Login = () => {
   <input className="input" type="text" required placeholder="Enter your username..." ref={userRef}></input>
   <label className="inputLabel">PASSWORD</label>
   <input className="input" type="password" placeholder="Enter your password..." ref={passwordRef}></input>
- <div  className="loginCheckbox" >
+ {/* <div  className="loginCheckbox" >
   <input type="checkbox" className="checkbox"></input><span>Show password</span>
- </div>
+ </div> */}
   <button className="loginUpdate" type="submit" disabled={isFetching}>LOGIN</button>
 <div className="createAccount">
   <span>Do not have an account?</span>

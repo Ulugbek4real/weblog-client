@@ -1,7 +1,7 @@
 import "./register.scss";
 import ProfPic from "../../assets/avatarProfPic.jpeg";
 import { useState } from "react";
-import axios from "axios";
+import axiosInstance from "../../configs";
 import {Link} from "react-router-dom"
 
 const Register = () => {
@@ -14,10 +14,11 @@ const Register = () => {
 e.preventDefault();
 setError(false);
 try {
-  const res = await axios.post("http://localhost:3000/api/auth/register/", {
+  const res = await axiosInstance.post("/auth/register/", {
   username,
   email,
   password,
+  profilePic: ProfPic,
 });
   res.data && window.location.replace("/login")
 } catch (err) {
